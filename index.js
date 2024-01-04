@@ -7,30 +7,18 @@ let command = process.argv[2]
 
 command = command.toUpperCase()
 
-
 if (command === "ADD") {
     console.log("add your new list")
-
-    let title = process.argv[3]
-    let body = process.argv[4]
-    let newNote = {
-        title: title,
-        body: body
-    }
-    note.push(newNote)
-    fs.writeFileSync("./index.json", JSON.stringify(note))
+    AddList()
     mainList()
 } else if (command === "REMOVE") {
     console.log("remove from list")
-    // console.log(note)
-    let title = process.argv[3]
-    let newArr = note.filter((el) => el.title !== title)
-    fs.writeFileSync("./index.json", JSON.stringify(newArr))
-    // console.log(newArr)
+
+    RemoveList()
 
 } else if (command === "LIST") {
-    let searchTitle = process.argv[3]
     console.log("list your note")
+    let searchTitle = process.argv[3]
     mainList(searchTitle)
 } else {
     console.log("there is no list")
@@ -39,6 +27,7 @@ if (command === "ADD") {
     console.log("add comaands to procedd :-add,remove,list")
 
 }
+
 function mainList(searchTitle) {
     for (let i = 0; i <= note.length - 1; i++) {
         let title = note[i].title
@@ -49,3 +38,20 @@ function mainList(searchTitle) {
     }
 }
 
+function AddList() {
+    let title = process.argv[3]
+    let body = process.argv[4]
+    let newNote = {
+        title: title,
+        body: body
+    }
+    note.push(newNote)
+    fs.writeFileSync("./index.json", JSON.stringify(note))
+}
+
+function RemoveList() {
+    let title = process.argv[3]
+    let newArr = note.filter((el) => el.title !== title)
+    fs.writeFileSync("./index.json", JSON.stringify(newArr))
+    console.log(newArr)
+}
