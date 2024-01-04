@@ -18,7 +18,7 @@ if (command === "ADD") {
 
 } else if (command === "LIST") {
     console.log("list your note")
-    let searchTitle = process.argv[3]
+    let searchTitle = process.argv[3].toLowerCase()
     mainList(searchTitle)
 } else {
     console.log("there is no list")
@@ -32,7 +32,7 @@ function mainList(searchTitle) {
     for (let i = 0; i <= note.length - 1; i++) {
         let title = note[i].title
         let body = note[i].body
-        if (title.includes(searchTitle)) {
+        if (title.toLowerCase().includes(searchTitle)) {
             console.log(`${i + 1}.Title:${title} Body:${body}`)
         }
     }
