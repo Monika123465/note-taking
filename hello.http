@@ -1,0 +1,28 @@
+GET http://localhost:3000/
+
+
+###
+
+GET http://localhost:3000/login
+
+
+
+### 
+
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+    "id":2,
+    "title": "satyam",
+    "body": "satyam have a great future "
+}
+
+
+
+####
+
+GET http://localhost:3000/notes
+
+
+

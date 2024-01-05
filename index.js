@@ -30,6 +30,7 @@ if (command === "ADD") {
 
 function mainList(searchTitle) {
     for (let i = 0; i <= note.length - 1; i++) {
+        
         let title = note[i].title
         let body = note[i].body
         if (title.toLowerCase().includes(searchTitle)) {
@@ -39,9 +40,11 @@ function mainList(searchTitle) {
 }
 
 function AddList() {
-    let title = process.argv[3]
-    let body = process.argv[4]
+    let id=process.argv[3]
+    let title = process.argv[4]
+    let body = process.argv[5]
     let newNote = {
+        id:id,
         title: title,
         body: body
     }
